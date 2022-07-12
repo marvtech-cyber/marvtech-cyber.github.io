@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 		const {renderer, scene, camera} = mindarThree;
 
-		const video = await loadVideo("../../assets/videos/sintel/chamotea.mp4");
+		const video = await loadVideo("../../assets/videos/sintel/chamo.mp4");
 		const texture = new THREE.VideoTexture(video);
 
-		const geometry = new THREE.PlaneGeometry(1, 204/480); // video aspect ratio 1 = width of video ,204/480 is the  height 
+		const geometry = new THREE.PlaneGeometry(1, 700/848); // video aspect ratio 1 = width of video ,204/480 is the  height 
 		const material = new THREE.MeshBasicMaterial({map: texture});
 		const plane = new THREE.Mesh(geometry, material); //overlays the target image
 		
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			video.pause();
 		}
 		video.addEventListener("play",() => {
-			video.currentTime = 6; //event listener plays video from 6 seconds because the image target was captured on 6th frame,allows seamless integration when starting to play
+			video.currentTime = 0; //event listener plays video from 6 seconds because the image target was captured on 0th frame,allows seamless integration when starting to play
 		});
 		
 
